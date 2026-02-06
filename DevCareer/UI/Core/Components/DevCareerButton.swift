@@ -15,7 +15,7 @@ struct DevCareerButton: View {
     var variant: DevCareerBtnVariant
     var action: () -> Void
     
-    init(_ label: String = "", variant: DevCareerBtnVariant = .full, action: @escaping () -> Void = {}) {
+    init(_ label: String, variant: DevCareerBtnVariant = .full, action: @escaping () -> Void = {}) {
         self.label = label
         self.variant = variant
         self.action = action
@@ -29,7 +29,7 @@ struct DevCareerButton: View {
                     .foregroundStyle(themeStore.onPrimaryColor)
                     .padding(.vertical, themeStore.smSpacing)
                     .padding(.horizontal, themeStore.xsSpacing)
-                    .buttonFrame(.medium)
+                    .buttonFrame(variant)
              }
              .tint(themeStore.primaryColor)
              .buttonStyle(.borderedProminent)

@@ -20,6 +20,7 @@ final class ThemeStore {
     
     private var theme = DevCareerTheme()
     
+    
 }
 
 extension ThemeStore {
@@ -29,7 +30,7 @@ extension ThemeStore {
     }
     
     var onPrimaryColor: Color {
-        theme.colors.background
+        theme.colors.onPrimary
     }
     
     var backgroundColor: Color {
@@ -38,12 +39,18 @@ extension ThemeStore {
     
     
     var onBackgroundColor: Color {
-        theme.colors.background
+        theme.colors.onBackground
+    }
+    
+    var bodyTextColor: Color {
+        theme.colors.onSurfaceVariant
     }
     
     var displayLargeFont: Font {
         theme.typography.displayLarge
     }
+    
+   
     
     var buttonFont: Font {
         theme.typography.button
@@ -67,6 +74,8 @@ extension ThemeStore {
     var xlSpacing: CGFloat { theme.spacing.xl }
     var xxlSpacing: CGFloat { theme.spacing.xxl }
     var xxxlSpacing: CGFloat { theme.spacing.xxxl }
+    
+    var sheetHeight: CGFloat { theme.spacing.presentedSheetHeight }
 
     var buttonRadius: CGFloat { theme.spacing.buttonRadius }
     var buttonPadding: CGFloat { theme.spacing.buttonPadding }

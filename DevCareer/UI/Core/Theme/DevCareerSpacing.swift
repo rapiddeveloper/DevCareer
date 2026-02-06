@@ -20,7 +20,7 @@ struct DevCareerSpacing {
     let sm: CGFloat = baseUnit * 2    // 8
     let md: CGFloat = baseUnit * 3    // 12
     let lg: CGFloat = baseUnit * 6    // 24
-    let xl: CGFloat = baseUnit * 8    // 32
+    let xl: CGFloat = baseUnit * 9    // 36
     let xxl: CGFloat = baseUnit * 12  // 48
     let xxxl: CGFloat = baseUnit * 16 // 64
 
@@ -30,6 +30,8 @@ struct DevCareerSpacing {
     var sectionSpacing: CGFloat { xl }
     var screenPadding: CGFloat { md }
     var containerPadding: CGFloat { DevCareerSpacing.baseUnit * 4 }
+    
+    var presentedSheetHeight = 0.8140
 
     // MARK: - Radius tokens (still spacing)
      var buttonRadius: CGFloat { sm }

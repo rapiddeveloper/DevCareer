@@ -24,6 +24,7 @@ struct DevCareerText: View {
     var body: some View {
         Text(label)
             .font(font)
+            .foregroundStyle(fontColor)
            
     }
 }
@@ -35,6 +36,16 @@ extension DevCareerText {
         case .body:  return themeStore.bodyFont
         case .large: return themeStore.displayLargeFont
         case .button:    return themeStore.buttonFont
+        }
+    }
+    
+    var fontColor: Color {
+        switch self.variant {
+        case .body:  return themeStore.bodyTextColor
+        case .button:    return themeStore.onPrimaryColor
+
+        default:
+            return themeStore.onBackgroundColor
         }
     }
     

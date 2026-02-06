@@ -13,7 +13,7 @@ struct DevCareerColors {
     let onPrimary: Color = .onPrimary
     let background: Color = .background
     let onBackground: Color = .onBackground
-   
+    let onSurfaceVariant: Color = .onSurfaceVariant
 }
 
  
