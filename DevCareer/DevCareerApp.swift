@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct DevCareerApp: App {
+    
+    var themeStore = ThemeStore()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(themeStore)
         }
     }
 }
