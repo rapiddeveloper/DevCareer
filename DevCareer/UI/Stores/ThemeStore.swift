@@ -50,7 +50,13 @@ extension ThemeStore {
         theme.typography.displayLarge
     }
     
-   
+    var petalColor: Color {
+        Color(.petal)
+    }
+    
+    var petalBorderColor: Color {
+        Color(.petalBorder)
+    }
     
     var buttonFont: Font {
         theme.typography.button
