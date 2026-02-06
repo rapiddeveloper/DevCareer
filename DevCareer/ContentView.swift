@@ -16,7 +16,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Git & version control mastery earned")
+             DevCareerText("Git & version control mastery earned", variant: .large)
  
          }
         .padding()
