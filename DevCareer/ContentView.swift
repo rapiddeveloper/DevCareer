@@ -12,15 +12,16 @@ struct ContentView: View {
     @Environment(ThemeStore.self) private var themeStore
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-             DevCareerText("Git & version control mastery earned", variant: .large)
-            DevCareerButton("Get Started")
- 
-         }
-        .padding()
+        ClearedPathScreen()
+//        VStack {
+//            Image(systemName: "globe")
+//                .imageScale(.large)
+//                .foregroundStyle(.tint)
+//             DevCareerText("Git & version control mastery earned", variant: .large)
+//            DevCareerButton("Get Started")
+// 
+//         }
+//        .padding()
     }
 }
 
