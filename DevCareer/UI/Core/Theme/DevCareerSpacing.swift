@@ -32,6 +32,5 @@ struct DevCareerSpacing {
     var containerPadding: CGFloat { DevCareerSpacing.baseUnit * 4 }
 
     // MARK: - Radius tokens (still spacing)
-    var cardRadius: CGFloat { md }
-    var buttonRadius: CGFloat { lg }
+     var buttonRadius: CGFloat { sm }
 }

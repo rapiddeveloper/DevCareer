@@ -13,8 +13,4 @@ struct DevCareerFonts {
     let button: Font = .custom("Aeonik-Medium", size: 14)
 }
 
-enum DevCareerTextVariant {
-    case body
-    case button
-    case large
-}
+

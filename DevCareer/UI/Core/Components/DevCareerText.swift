@@ -14,12 +14,12 @@ import SwiftUI
 struct DevCareerText: View {
     let label: String
     let variant: DevCareerTextVariant
-    @Environment(ThemeStore.self) private var themeStore
+     @Environment(ThemeStore.self) private var themeStore
     
-     init(_ label: String, variant: DevCareerTextVariant = .body) {
+    init(_ label: String, variant: DevCareerTextVariant = .body) {
         self.label = label
         self.variant = variant
-    }
+     }
     
     var body: some View {
         Text(label)

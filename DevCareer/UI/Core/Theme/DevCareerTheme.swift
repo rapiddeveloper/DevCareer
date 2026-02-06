@@ -10,3 +10,17 @@ struct DevCareerTheme {
     let typography = DevCareerFonts()
     let spacing = DevCareerSpacing()
 }
+
+enum DevCareerBtnVariant: String {
+    case small
+    case medium
+    case full
+    
+    
+}
+
+enum DevCareerTextVariant {
+    case body
+    case button
+    case large
+}

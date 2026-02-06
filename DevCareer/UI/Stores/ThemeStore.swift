@@ -29,7 +29,7 @@ extension ThemeStore {
     }
     
     var onPrimaryColor: Color {
-        theme.colors.primary
+        theme.colors.background
     }
     
     var backgroundColor: Color {
@@ -53,6 +53,13 @@ extension ThemeStore {
         theme.typography.body
     }
     
+    var mdButton: CGFloat {
+        200
+    }
+    var smButton: CGFloat {
+        100
+    }
+    
     var xsSpacing: CGFloat { theme.spacing.xs }
     var smSpacing: CGFloat { theme.spacing.sm }
     var mdSpacing: CGFloat { theme.spacing.md }
@@ -61,6 +68,7 @@ extension ThemeStore {
     var xxlSpacing: CGFloat { theme.spacing.xxl }
     var xxxlSpacing: CGFloat { theme.spacing.xxxl }
 
+    var buttonRadius: CGFloat { theme.spacing.buttonRadius }
     var buttonPadding: CGFloat { theme.spacing.buttonPadding }
     var cardPadding: CGFloat { theme.spacing.cardPadding }
     var sectionSpacing: CGFloat { theme.spacing.sectionSpacing }

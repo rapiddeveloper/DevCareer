@@ -17,6 +17,7 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
              DevCareerText("Git & version control mastery earned", variant: .large)
+            DevCareerButton("Get Started")
  
          }
         .padding()
