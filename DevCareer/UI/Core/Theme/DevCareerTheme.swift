@@ -25,6 +25,7 @@ enum DevCareerTextVariant {
     case large
     case subheadline
     case subtitle1
+    case subtitle2
     case caption1
     case caption2
 }

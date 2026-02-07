@@ -16,6 +16,13 @@ struct DevCareerColors {
     let onSurfaceVariant: Color = .onSurfaceVariant
     let softText: Color = .softText
     let outline: Color = .outline
+    let iconBtn: Color = .iconButton
+    let brandText: Color = .brandText
+    let days: Color = .days
+    let fire: Color = .fire
+    let softIcon: Color = .softIcon
+    let lightGrey: Color = .lightGrey
+
 }
 
  

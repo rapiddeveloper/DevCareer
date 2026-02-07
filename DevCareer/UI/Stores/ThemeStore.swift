@@ -41,6 +41,10 @@ extension ThemeStore {
         theme.colors.softText
     }
     
+    var lightGreyColor: Color {
+        theme.colors.lightGrey
+    }
+    
     
     var onBackgroundColor: Color {
         theme.colors.onBackground
@@ -66,6 +70,26 @@ extension ThemeStore {
         theme.colors.outline
     }
     
+    var iconButtonColor: Color {
+        theme.colors.iconBtn
+    }
+    
+    var fireColor: Color {
+        theme.colors.fire
+    }
+    
+    var softIconColor: Color {
+        theme.colors.softIcon
+    }
+    
+    var brandTextColor: Color {
+        theme.colors.brandText
+    }
+    
+    var daysColor: Color {
+        theme.colors.days
+    }
+    
     var buttonFont: Font {
         theme.typography.button
     }
@@ -74,12 +98,20 @@ extension ThemeStore {
         theme.typography.body
     }
     
+    var title1Font: Font {
+        theme.typography.title1
+    }
+    
     var subheadlineFont: Font {
         theme.typography.subheadline
     }
     
     var subtitle1Font: Font {
         theme.typography.subtitle1
+    }
+    
+    var subtitle2Font: Font {
+        theme.typography.subtitle2
     }
     
     var caption1Font: Font {

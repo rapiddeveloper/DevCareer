@@ -33,9 +33,10 @@ struct DevCareerText: View {
 
 // MARK: - Style Logic
 extension DevCareerText {
-    var font: Font {
+    private var font: Font {
         switch self.variant {
         case .subtitle1: return themeStore.subtitle1Font
+        case .subtitle2: return themeStore.subtitle2Font
         case .subheadline: return themeStore.subheadlineFont
         case .body:  return themeStore.bodyFont
         case .large: return themeStore.displayLargeFont
@@ -47,7 +48,7 @@ extension DevCareerText {
         }
     }
     
-    var fontColor: Color {
+    private var fontColor: Color {
         switch self.variant {
         case .body:  return themeStore.bodyTextColor
         case .button:    return themeStore.onPrimaryColor
@@ -57,7 +58,7 @@ extension DevCareerText {
         }
     }
     
-    var kerning: CGFloat {
+    private var kerning: CGFloat {
         switch self.variant {
         case .caption1, .caption2:  return 0
 

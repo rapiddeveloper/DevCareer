@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CircularProgressView<Content: View>: View {
     let progress: Double  // Range 0 to 100
-    var progressColor = Color.blue
+    var progressColor = Color.lightGrey
+    var trackLineWidth: CGFloat = 6.0
     let content: () -> Content  // Asset name
 
     private var progressPercentage: Double {
@@ -27,7 +28,7 @@ struct CircularProgressView<Content: View>: View {
             Circle()
                 .stroke(
                     progressColor.opacity(0.24),
-                    lineWidth: UIConstants.trackLineWidth)
+                    lineWidth: trackLineWidth)
 
             // 3. Progress Indicator (Solid Blue)
             Circle()
@@ -35,7 +36,7 @@ struct CircularProgressView<Content: View>: View {
                 .stroke(
                     progressColor,
                     style: StrokeStyle(
-                        lineWidth: UIConstants.progressLineWidth
+                        lineWidth: trackLineWidth
                     )
                 )
                 .rotationEffect(UIConstants.startRotation)  // Start from top center
@@ -77,7 +78,7 @@ private struct UIConstants {
 
     VStack {
         CircularProgressView(
-            progress: 10, progressColor: Color(hex: badge.color)
+            progress: 10, progressColor: .lightGrey, trackLineWidth: 12
         ) {
             BadgeView(badge)
         }
