@@ -10,6 +10,7 @@ import SwiftUI
 struct AchievementBadgeView: View {
 
     @Binding var isFlipped: Bool
+    let badge: Badge = .init(kind: .blue)
 
     var body: some View {
         ZStack {
@@ -39,9 +40,6 @@ struct AchievementBadgeView: View {
 
 extension AchievementBadgeView {
     var badgeView : some View {
-        Image("BadgePurple")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 243, height: 213)
+        BadgeView(badge)
     }
 }
