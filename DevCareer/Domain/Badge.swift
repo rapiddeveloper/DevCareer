@@ -9,6 +9,8 @@
  A badge for an achievement
  */
 
+import Foundation
+
 struct Badge {
     var kind: BadgeKind
     
@@ -39,6 +41,14 @@ struct Badge {
     }
     
     
+}
+
+struct BadgeItem: Identifiable {
+    let badge: Badge
+    let title: String
+    let subtitle: String
+    
+    let id = UUID()
 }
 
 enum BadgeKind: String, CaseIterable {
