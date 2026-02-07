@@ -39,8 +39,9 @@ struct LearningPathSectionView: View {
                             .font(.footnote)
                     }
                 } action: {
-                    
+                    print("Pressed")
                 }
+               
 
                 
             }

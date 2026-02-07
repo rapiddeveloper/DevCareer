@@ -17,41 +17,7 @@ struct DashboardScreen: View {
     var body: some View {
         DashboardView()
             .ignoresSafeArea()
-           /*
-            .safeAreaInset(edge: .top) {
-                HStack {
-                    DevCareerIconButton {
-
-                    } label: {
-                        DevCareerText("TA", variant: .subtitle2)
-                            .foregroundStyle(themeStore.brandTextColor)
- 
-                    }
-                    Spacer()
-                    
-                    DevCareerOutlineButton(action: {}) {
-                        HStack(spacing: 8) {
-                            SVGImage(
-                                svg: "Days", width: 12, height: 12,
-                                color: themeStore.fireColor)
-                            DevCareerText("3 Days", variant: .subtitle1)
-                        }
-                    }
-                    Spacer()
-                    DevCareerIconButton {
-
-                    } label: {
-                        SVGImage(
-                            svg: "NotificationIcon",
-                            width: 22,
-                            height: 22,
-                            color: themeStore.onBackgroundColor
-                        )
-
-                    }
-                }
-                .padding(.horizontal, themeStore.containerPadding)
-            }*/
+            
             
             .toolbar {
                 ToolbarItem(placement: .principal) {

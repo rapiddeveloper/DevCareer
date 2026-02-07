@@ -29,15 +29,21 @@ struct ForTodayView: View {
                 }
                 .frame(width: UIConstants.progressLen, height: UIConstants.progressLen)
                 
-                VStack(alignment: .leading, spacing: themeStore.smSpacing - 2.0) {
-                    DevCareerText(topic, variant: .subtitle1)
-                    HStack(spacing: 8) {
-                        SVGImage(svg: "NoteIcon", width: UIConstants.iconLen, height: UIConstants.iconLen, color: themeStore.softTextColor)
-                        DevCareerText(subtitle)
+                HStack {
+                    VStack(alignment: .leading, spacing: themeStore.smSpacing - 2.0) {
+                        DevCareerText(topic, variant: .subtitle1)
+                        HStack(spacing: 8) {
+                            SVGImage(svg: "NoteIcon", width: UIConstants.iconLen, height: UIConstants.iconLen, color: themeStore.softTextColor)
+                            DevCareerText(subtitle)
+                            Spacer()
+                        }
+                        
                     }
                 }
-                Spacer()
-            }
+                Image(systemName: "chevron.right")
+                     .resizable()
+                     .frame(width: themeStore.smSpacing, height: themeStore.containerPadding)
+              }
            
         }
         .padding(.top, themeStore.containerPadding)

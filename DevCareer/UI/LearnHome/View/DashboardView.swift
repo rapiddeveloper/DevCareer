@@ -14,19 +14,28 @@ struct DashboardView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 0) {
-                DashboardHeaderView()
-                    .frame(height: UIConstants.headerHeight)
-                Spacer(minLength: UIConstants.sectionSpacing)
-                Group {
-                    LearningPathSectionView()
-                                   Spacer(minLength: themeStore.xlSpacing)
-                                   BadgesSectionView()
+            ZStack {
+                VStack(spacing: 0) {
+                    DashboardHeaderView()
+                        .frame(height: UIConstants.headerHeight)
+                    Spacer(minLength: UIConstants.sectionSpacing)
+                    Group {
+                        LearningPathSectionView()
+                        Spacer(minLength: themeStore.xlSpacing)
+                        BadgesSectionView()
+                    }
+                    .padding(.horizontal, themeStore.containerPadding)
+                    
+                    
                 }
+                Group {
+                    ForTodayView()
+                }
+                .padding(.bottom, 90)
                 .padding(.horizontal, themeStore.containerPadding)
-               
-                
-            }
+
+             }
+            
         }
         .padding(.bottom, themeStore.xxlSpacing)
         .background(themeStore.backgroundColor)
