@@ -37,6 +37,10 @@ extension ThemeStore {
         theme.colors.background
     }
     
+    var softTextColor: Color {
+        theme.colors.softText
+    }
+    
     
     var onBackgroundColor: Color {
         theme.colors.onBackground
@@ -58,12 +62,31 @@ extension ThemeStore {
         Color(.petalBorder)
     }
     
+    var outlineColor: Color {
+        theme.colors.outline
+    }
+    
     var buttonFont: Font {
         theme.typography.button
     }
     
     var bodyFont: Font {
         theme.typography.body
+    }
+    
+    var subheadlineFont: Font {
+        theme.typography.subheadline
+    }
+    
+    var subtitle1Font: Font {
+        theme.typography.subtitle1
+    }
+    
+    var caption1Font: Font {
+        theme.typography.caption1
+    }
+    var caption2Font: Font {
+        theme.typography.caption2
     }
     
     var mdButton: CGFloat {

@@ -7,49 +7,59 @@
 
 import SwiftUI
 
-struct DevCareerButton: View {
-    
+struct DevCareerButton<Content: View>: View {
+
     @Environment(ThemeStore.self) private var themeStore
-    
-    var label: String
+
+    var label: Content
     var variant: DevCareerBtnVariant
     var action: () -> Void
-    
-    init(_ label: String, variant: DevCareerBtnVariant = .full, action: @escaping () -> Void = {}) {
-        self.label = label
+
+    init(
+        _ label: String, variant: DevCareerBtnVariant = .full,
+        action: @escaping () -> Void = {}
+    ) where Content == AnyView {
+
+        self.label = AnyView(
+            DevCareerText(label, variant: .button)
+        )
+
         self.variant = variant
         self.action = action
     }
-    
+
+    init(
+        @ViewBuilder _ label: @escaping () -> Content,
+        variant: DevCareerBtnVariant = .full, action: @escaping () -> Void = {}
+    ) {
+        self.label = label()
+        self.variant = variant
+        self.action = action
+    }
+
     var body: some View {
-             Button {
-                action()
-            } label: {
-                DevCareerText(label, variant: .button)
-                    .foregroundStyle(themeStore.onPrimaryColor)
-                    .padding(.vertical, themeStore.smSpacing)
-                    .padding(.horizontal, themeStore.xsSpacing)
-                    .buttonFrame(variant)
-             }
-             .tint(themeStore.primaryColor)
-             .buttonStyle(.borderedProminent)
-             .buttonBorderShape(.roundedRectangle(radius: themeStore.buttonRadius))
-        
-       
+        Button {
+            action()
+        } label: {
+            label
+                .foregroundStyle(themeStore.onPrimaryColor)
+                .padding(.vertical, themeStore.smSpacing)
+                .padding(.horizontal, themeStore.xsSpacing)
+                .buttonFrame(variant)
+        }
+        .tint(themeStore.primaryColor)
+        .buttonStyle(.borderedProminent)
+        .buttonBorderShape(.roundedRectangle(radius: themeStore.buttonRadius))
 
     }
 }
 
- 
-
- 
-
 #Preview {
-    
+
     VStack {
         DevCareerButton("Show Achievements")
             .environment(ThemeStore())
             .frame(width: 355)
-     }
+    }
     .padding(20)
 }

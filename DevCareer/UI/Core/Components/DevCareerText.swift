@@ -25,6 +25,8 @@ struct DevCareerText: View {
         Text(label)
             .font(font)
             .foregroundStyle(fontColor)
+            //.kerning(kerning)
+            
            
     }
 }
@@ -33,9 +35,15 @@ struct DevCareerText: View {
 extension DevCareerText {
     var font: Font {
         switch self.variant {
+        case .subtitle1: return themeStore.subtitle1Font
+        case .subheadline: return themeStore.subheadlineFont
         case .body:  return themeStore.bodyFont
         case .large: return themeStore.displayLargeFont
         case .button:    return themeStore.buttonFont
+        case .caption1:
+             return themeStore.caption1Font
+        case .caption2:
+            return themeStore.caption2Font
         }
     }
     
@@ -43,9 +51,18 @@ extension DevCareerText {
         switch self.variant {
         case .body:  return themeStore.bodyTextColor
         case .button:    return themeStore.onPrimaryColor
-
+        case .caption1, .caption2: return themeStore.softTextColor
         default:
             return themeStore.onBackgroundColor
+        }
+    }
+    
+    var kerning: CGFloat {
+        switch self.variant {
+        case .caption1, .caption2:  return 0
+
+        default:
+            return  -2
         }
     }
     

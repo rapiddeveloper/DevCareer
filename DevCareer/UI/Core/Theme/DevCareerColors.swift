@@ -14,6 +14,8 @@ struct DevCareerColors {
     let background: Color = .background
     let onBackground: Color = .onBackground
     let onSurfaceVariant: Color = .onSurfaceVariant
+    let softText: Color = .softText
+    let outline: Color = .outline
 }
 
  

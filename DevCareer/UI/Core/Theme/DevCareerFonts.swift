@@ -11,6 +11,11 @@ struct DevCareerFonts {
     let displayLarge: Font = .custom("Aeonik-Bold", size: 28)
     let body: Font = .custom("Aeonik-Regular", size: 14)
     let button: Font = .custom("Aeonik-Medium", size: 14)
+    let subheadline: Font = .custom("Aeonik-Bold", size: 16)
+    let subtitle1: Font = .custom("Aeonik-Medium", size: 14)
+    let caption1: Font = .custom("Aeonik-Regular", size: 12)
+    let caption2: Font = .custom("Aeonik-Regular", size: 10)
+
 }
 
 
