@@ -16,18 +16,17 @@ struct AuthScreen: View {
     @Environment(AccountStore.self) private var accountManager
 
     @State var isSignedOut: Bool = true
-    @State var profileExists: Bool = false
-
+ 
     var body: some View {
         
         Group {
-            if !accountManager.isUserSignedIn && !profileExists {
+            if !accountManager.isUserSignedIn && !accountManager.isAuth() {
                 WelcomeView(isSignupViewPresented: $isSignUpPresented)
                     .fullScreenCover(isPresented: $isSignUpPresented) {
                         SignUpView( isLoginViewPresented: $isPresented, onSignUp: accountManager.signup)
                             .sheet(isPresented: $isPresented) {
                                 NavigationStack {
-                                    LoginView(onLogin: accountManager.signup) // Supposed to be screen
+                                    loginScreen // Supposed to be screen
                                         .toolbar {
                                             ToolbarItem(placement: .topBarTrailing) {
                                                 Button {
@@ -44,11 +43,17 @@ struct AuthScreen: View {
                             }
                     }
             } else {
-                LoginView(onLogin: signup) // Supposed to be screen
+                loginScreen
             }
         }
        
        
+    }
+}
+
+extension AuthScreen {
+    var loginScreen : some View {
+        LoginView(onLogin: accountManager.login)
     }
 }
 

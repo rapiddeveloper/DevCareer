@@ -23,9 +23,13 @@ struct DevCareerApp: App {
                     AuthScreen()
                 }
             }
+            
             .environment(themeStore)
             .environment(accountManager)
             .environment(router)
+//            .onAppear {
+//                accountManager.logout()
+//            }
 
           
         }

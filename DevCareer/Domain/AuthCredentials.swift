@@ -5,9 +5,13 @@
 //  Created by Orisajobi Akinbola on 2/8/26.
 //
 
-struct AuthCredentials {
+struct AuthCredentials: Codable {
     var firstName = ""
     var lastName = ""
     var email = ""
     var password = ""
+    
+    var isInvalid: Bool {
+        firstName.isEmpty || lastName.isEmpty || email.isEmpty || password.isEmpty
+    }
 }

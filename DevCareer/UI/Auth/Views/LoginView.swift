@@ -61,7 +61,7 @@ struct LoginView: View {
                 
                 // Sign Up
                 DevCareerButton("Continue", action: {
-                    //onLogIn(credentials)
+                    onLogin(credentials)
                  })
                 .padding(.top, 8)
 
