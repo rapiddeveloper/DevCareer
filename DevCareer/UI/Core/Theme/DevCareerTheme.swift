@@ -28,4 +28,5 @@ enum DevCareerTextVariant {
     case subtitle2
     case caption1
     case caption2
+    case title1
 }

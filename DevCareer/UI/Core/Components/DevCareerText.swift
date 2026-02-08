@@ -41,6 +41,7 @@ extension DevCareerText {
         case .body:  return themeStore.bodyFont
         case .large: return themeStore.displayLargeFont
         case .button:    return themeStore.buttonFont
+        case .title1:    return themeStore.title1Font
         case .caption1:
              return themeStore.caption1Font
         case .caption2:
