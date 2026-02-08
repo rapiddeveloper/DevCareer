@@ -8,5 +8,12 @@
 		<string>Aeonik-Medium.ttf</string>
 		<string>Aeonik-Bold.ttf</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>AppPrimaryColor</string>
+		<key>UIImageName</key>
+		<string>LaunchImage</string>
+	</dict>
 </dict>
 </plist>
