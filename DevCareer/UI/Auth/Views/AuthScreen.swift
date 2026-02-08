@@ -13,20 +13,21 @@ struct AuthScreen: View {
     @State private var isPresented: Bool = false
     @State private var isSignUpPresented: Bool = false
     @Environment(ThemeStore.self) private var themeStore
-    
+    @Environment(AccountStore.self) private var accountManager
+
     @State var isSignedOut: Bool = true
     @State var profileExists: Bool = false
 
     var body: some View {
         
         Group {
-            if isSignedOut && !profileExists {
+            if !accountManager.isUserSignedIn && !profileExists {
                 WelcomeView(isSignupViewPresented: $isSignUpPresented)
                     .fullScreenCover(isPresented: $isSignUpPresented) {
-                        SignUpView( isLoginViewPresented: $isPresented, onSignUp: signup)
+                        SignUpView( isLoginViewPresented: $isPresented, onSignUp: accountManager.signup)
                             .sheet(isPresented: $isPresented) {
                                 NavigationStack {
-                                    LoginView(onLogin: signup) // Supposed to be screen
+                                    LoginView(onLogin: accountManager.signup) // Supposed to be screen
                                         .toolbar {
                                             ToolbarItem(placement: .topBarTrailing) {
                                                 Button {

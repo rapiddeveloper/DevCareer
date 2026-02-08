@@ -11,11 +11,23 @@ import SwiftUI
 struct DevCareerApp: App {
     
     var themeStore = ThemeStore()
-    
+    var accountManager = AccountStore()
+    var router = NavigationRouter()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(themeStore)
+            Group {
+                if accountManager.isUserSignedIn {
+                    ContentView()
+                 } else {
+                    AuthScreen()
+                }
+            }
+            .environment(themeStore)
+            .environment(accountManager)
+            .environment(router)
+
+          
         }
     }
 }

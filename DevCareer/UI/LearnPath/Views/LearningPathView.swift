@@ -10,6 +10,8 @@ import UIKit
 
 struct LearningPathView: View {
 
+    @Environment(NavigationRouter.self) private var router
+
     let badge = Badge(kind: .gray)
 
     var body: some View {
@@ -26,38 +28,18 @@ struct LearningPathView: View {
                         .frame(width: 112.0, height: 112.0)
 
                     }
+                    .onTapGesture {
+                        router.navigateTo(.cleared)
+                    }
                 }
             }
             .padding()
         }
-        //.background(SwipeBackEnabler())
-        /*
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                   // dismiss()
-                } label: {
-                    HStack(spacing: 6) {
-                        Image(systemName: "chevron.left")
-                        Text("Back")
-                    }
-                }
-            }
-        }*/
+        
     }
 }
 
-struct SwipeBackEnabler: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UIViewController {
-        let vc = UIViewController()
-        DispatchQueue.main.async {
-            vc.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        }
-        return vc
-    }
 
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
-}
 
 extension LearningPathView {
 

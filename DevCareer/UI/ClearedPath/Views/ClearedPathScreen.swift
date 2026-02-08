@@ -13,21 +13,16 @@ import SwiftUI
 
 struct ClearedPathScreen: View {
     
-    @State private var show = false
-    @Environment(ThemeStore.self) var themeStore
+     @Environment(ThemeStore.self) var themeStore
     
     var body: some View {
-        Text("Show")
-            .onTapGesture {
-                show = true
-            }
-            .sheet(isPresented: $show) {
+         
                 ClearedPathView()
                     .presentationDetents([.fraction(themeStore.sheetHeight)])
                     .presentationCornerRadius(themeStore.lgSpacing)
                     .presentationDragIndicator(.visible)
                     .presentationBackground(themeStore.backgroundColor)
-            }
+            
     }
 }
 

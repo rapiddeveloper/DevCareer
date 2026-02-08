@@ -10,15 +10,16 @@ import SwiftUI
 struct DashboardScreen: View {
 
     @Environment(ThemeStore.self) private var themeStore
+    @Environment(NavigationRouter.self) private var router
     
     let headerColor = Color(uiColor: .init(red: 134/255, green: 54/255, blue: 232/255, alpha: 0.26))
 
 
     var body: some View {
+
         DashboardView()
             .ignoresSafeArea()
-            
-            
+            .navigationTitle("")
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     DevCareerOutlineButton(action: {}) {
@@ -33,7 +34,7 @@ struct DashboardScreen: View {
 
                 ToolbarItem(placement: .topBarLeading) {
                     DevCareerIconButton {
-
+                        router.navigateTo(.profile)
                     } label: {
                         DevCareerText("TA", variant: .subtitle2)
                             .foregroundStyle(themeStore.brandTextColor)

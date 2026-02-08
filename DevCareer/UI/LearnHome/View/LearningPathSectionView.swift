@@ -10,6 +10,8 @@ import SwiftUI
 struct LearningPathSectionView: View {
     
     @Environment(ThemeStore.self) private var themeStore
+    @Environment(NavigationRouter.self) private var router
+
     
     // Hardcoded data driving the view
     private let pathTitle = "Fullstack mobile Engineer"
@@ -39,7 +41,7 @@ struct LearningPathSectionView: View {
                             .font(.footnote)
                     }
                 } action: {
-                    print("Pressed")
+                    router.navigateTo(.learn)
                 }
                
 

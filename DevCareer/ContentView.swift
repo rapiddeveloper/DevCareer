@@ -8,20 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     @Environment(ThemeStore.self) private var themeStore
-    
+    @Environment(NavigationRouter.self) private var router
+
     var body: some View {
-        ClearedPathScreen()
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//             DevCareerText("Git & version control mastery earned", variant: .large)
-//            DevCareerButton("Get Started")
-// 
-//         }
-//        .padding()
+        
+        @Bindable var bindableRouter = self.router
+        
+        NavigationStack(path: $bindableRouter.path) {
+            DashboardScreen()
+                .sheet(isPresented: $bindableRouter.isClearedPathScreenPresented) {
+                    ClearedPathScreen()
+                }
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .cleared:
+                        ClearedPathView()
+                    case .learn:
+                        LearningPathScreen()
+                    case .profile:
+                        ProfileScreen()
+                    default:
+                        DashboardScreen()
+                    }
+                }
+        }
     }
 }
 
