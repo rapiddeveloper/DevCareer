@@ -21,7 +21,7 @@ struct LearningPathView: View {
             VStack(alignment: .leading) {
                 header
                 ForEach(0..<5, id: \.self) { idx in
-                    LessonCardView {
+                    LessonCardView(topic: "demo") {
                         CircularProgressView(progress: 0.0) {
                             BadgeView(badge, width: 82.0, height: 72.0)
                         }

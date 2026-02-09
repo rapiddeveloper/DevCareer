@@ -1,0 +1,195 @@
+[{
+    "id": "lp-1",
+    "title": "iOS Foundations",
+    "description": "Build strong fundamentals in iOS development",
+    "stages": [
+        {
+            "id": "lp-1-stage-1",
+            "title": "Swift Basics",
+            "order": 1,
+            "status": "locked",
+            "lessons": [
+                { "id": "l-1-1", "title": "Variables & Constants", "estimatedDurationMinutes": 15, "progress": { "state": "notStarted" } },
+                { "id": "l-1-2", "title": "Data Types", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-1-3", "title": "Control Flow", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-1-4", "title": "Functions", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-1-5", "title": "Optionals", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-1-6", "title": "Enums", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-1-7", "title": "Structs", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-1-8", "title": "Classes", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-1-9", "title": "Protocols", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-1-10", "title": "Extensions", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } }
+            ]
+        },
+        {
+            "id": "lp-1-stage-2",
+            "title": "SwiftUI Basics",
+            "order": 2,
+            "status": "locked",
+            "lessons": [
+                { "id": "l-2-1", "title": "What is SwiftUI", "estimatedDurationMinutes": 15, "progress": { "state": "notStarted" } },
+                { "id": "l-2-2", "title": "Views & Modifiers", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-2-3", "title": "Stacks", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-2-4", "title": "Text & Images", "estimatedDurationMinutes": 15, "progress": { "state": "notStarted" } },
+                { "id": "l-2-5", "title": "Buttons", "estimatedDurationMinutes": 15, "progress": { "state": "notStarted" } },
+                { "id": "l-2-6", "title": "Lists", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-2-7", "title": "Navigation", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-2-8", "title": "State & Binding", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-2-9", "title": "Animations", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-2-10", "title": "Preview", "estimatedDurationMinutes": 10, "progress": { "state": "notStarted" } }
+            ]
+        },
+        {
+            "id": "lp-1-stage-3",
+            "title": "App Architecture",
+            "order": 3,
+            "status": "locked",
+            "lessons": [
+                { "id": "l-3-1", "title": "MVC", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-3-2", "title": "MVVM", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-3-3", "title": "Clean Architecture", "estimatedDurationMinutes": 35, "progress": { "state": "notStarted" } },
+                { "id": "l-3-4", "title": "Repository Pattern", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-3-5", "title": "Dependency Injection", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-3-6", "title": "Modules", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-3-7", "title": "State Management", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-3-8", "title": "Navigation Flow", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-3-9", "title": "Scalability", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-3-10", "title": "Testing Strategy", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } }
+            ]
+        },
+        {
+            "id": "lp-1-stage-4",
+            "title": "Networking",
+            "order": 4,
+            "status": "locked",
+            "lessons": [
+                { "id": "l-4-1", "title": "HTTP Basics", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-4-2", "title": "REST APIs", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-4-3", "title": "URLSession", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-4-4", "title": "Async/Await", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-4-5", "title": "Error Handling", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-4-6", "title": "Decoding JSON", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-4-7", "title": "API Client Design", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-4-8", "title": "Pagination", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-4-9", "title": "Caching", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-4-10", "title": "Offline Support", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } }
+            ]
+        },
+        {
+            "id": "lp-1-stage-5",
+            "title": "Advanced Topics",
+            "order": 5,
+            "status": "locked",
+            "lessons": [
+                { "id": "l-5-1", "title": "Concurrency", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-5-2", "title": "Actors", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-5-3", "title": "Memory Management", "estimatedDurationMinutes": 35, "progress": { "state": "notStarted" } },
+                { "id": "l-5-4", "title": "Performance", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-5-5", "title": "Security", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+                { "id": "l-5-6", "title": "Accessibility", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-5-7", "title": "Localization", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-5-8", "title": "Analytics", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+                { "id": "l-5-9", "title": "CI/CD", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+                { "id": "l-5-10", "title": "Publishing", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } }
+            ]
+        }
+    ]
+},
+    {
+      "id": "lp-2",
+      "title": "Android Development",
+      "description": "Build modern Android applications with Kotlin",
+      "stages": [
+        {
+          "id": "lp-2-stage-1",
+          "title": "Kotlin Basics",
+          "order": 1,
+          "status": "locked",
+          "lessons": [
+            { "id": "l-2-1-1", "title": "Variables & Types", "estimatedDurationMinutes": 15, "progress": { "state": "notStarted" } },
+            { "id": "l-2-1-2", "title": "Functions", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-1-3", "title": "Conditionals", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-1-4", "title": "Collections", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-1-5", "title": "Null Safety", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-1-6", "title": "Data Classes", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-1-7", "title": "Enums", "estimatedDurationMinutes": 15, "progress": { "state": "notStarted" } },
+            { "id": "l-2-1-8", "title": "Sealed Classes", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-1-9", "title": "Extensions", "estimatedDurationMinutes": 15, "progress": { "state": "notStarted" } },
+            { "id": "l-2-1-10", "title": "Coroutines Intro", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } }
+          ]
+        },
+        {
+          "id": "lp-2-stage-2",
+          "title": "Jetpack Compose",
+          "order": 2,
+          "status": "locked",
+          "lessons": [
+            { "id": "l-2-2-1", "title": "Compose Basics", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-2-2", "title": "Composable Functions", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-2-3", "title": "State & Remember", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-2-4", "title": "Layouts", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-2-5", "title": "Material Theme", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-2-6", "title": "Navigation", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-2-7", "title": "Lists", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-2-8", "title": "Animations", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-2-9", "title": "Theming", "estimatedDurationMinutes": 15, "progress": { "state": "notStarted" } },
+            { "id": "l-2-2-10", "title": "Previews", "estimatedDurationMinutes": 10, "progress": { "state": "notStarted" } }
+          ]
+        },
+        {
+          "id": "lp-2-stage-3",
+          "title": "Architecture",
+          "order": 3,
+          "status": "locked",
+          "lessons": [
+            { "id": "l-2-3-1", "title": "MVVM", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-3-2", "title": "Repository Pattern", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-3-3", "title": "Use Cases", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-3-4", "title": "Dependency Injection", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-3-5", "title": "StateFlow", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-3-6", "title": "SharedFlow", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-3-7", "title": "Unidirectional Data Flow", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-3-8", "title": "Modularization", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-3-9", "title": "Scalability", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-3-10", "title": "Testing", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } }
+          ]
+        },
+        {
+          "id": "lp-2-stage-4",
+          "title": "Networking & Storage",
+          "order": 4,
+          "status": "locked",
+          "lessons": [
+            { "id": "l-2-4-1", "title": "REST APIs", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-4-2", "title": "Retrofit", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-4-3", "title": "Serialization", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-4-4", "title": "Room DB", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-4-5", "title": "DataStore", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-4-6", "title": "Caching", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-4-7", "title": "Pagination", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-4-8", "title": "Offline Mode", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-4-9", "title": "Error Handling", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-4-10", "title": "Security", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } }
+          ]
+        },
+        {
+          "id": "lp-2-stage-5",
+          "title": "Advanced Android",
+          "order": 5,
+          "status": "locked",
+          "lessons": [
+            { "id": "l-2-5-1", "title": "Performance", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-5-2", "title": "Background Work", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } },
+            { "id": "l-2-5-3", "title": "WorkManager", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-5-4", "title": "Notifications", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-5-5", "title": "Deep Links", "estimatedDurationMinutes": 15, "progress": { "state": "notStarted" } },
+            { "id": "l-2-5-6", "title": "Accessibility", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-5-7", "title": "Localization", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-5-8", "title": "Analytics", "estimatedDurationMinutes": 20, "progress": { "state": "notStarted" } },
+            { "id": "l-2-5-9", "title": "CI/CD", "estimatedDurationMinutes": 30, "progress": { "state": "notStarted" } },
+            { "id": "l-2-5-10", "title": "Play Store Publishing", "estimatedDurationMinutes": 25, "progress": { "state": "notStarted" } }
+          ]
+        }
+      ]
+    }
+]

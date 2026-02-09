@@ -8,10 +8,10 @@
 import Foundation
 
 
-struct LearningStage {
-    let id: UUID
-    let title: String
-    let order: Int
-    let lessons: [Lesson]
-    let status: StageStatus
+struct LearningStage: Codable, Identifiable {
+    var id: String = ""
+    var title: String = ""
+    var order: Int = 0
+    var lessons: [Lesson] = []
+    var status: String = "locked"
 }

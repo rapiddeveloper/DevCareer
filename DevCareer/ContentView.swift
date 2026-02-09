@@ -11,10 +11,14 @@ struct ContentView: View {
 
     @Environment(ThemeStore.self) private var themeStore
     @Environment(NavigationRouter.self) private var router
+    @Environment(AccountStore.self) private var accountStore
+    @Environment(LearningPathStore.self) private var pathsStore
+
 
     var body: some View {
         
         @Bindable var bindableRouter = self.router
+       
         
         NavigationStack(path: $bindableRouter.path) {
             DashboardScreen()
@@ -33,8 +37,21 @@ struct ContentView: View {
                         DashboardScreen()
                     }
                 }
+            /*
+                 .onChange(of: paths, { oldPaths, newPaths in
+                    accountStore.updateUserLearningPath(fromPaths: newPaths)
+
+                })*/
+                .onAppear(perform: updateUserLearningPath)
         }
     }
+}
+
+extension ContentView {
+    private func updateUserLearningPath() {
+        
+        accountStore.updateUserLearningPath(fromPaths: pathsStore.learningPaths)
+     }
 }
 
 #Preview {

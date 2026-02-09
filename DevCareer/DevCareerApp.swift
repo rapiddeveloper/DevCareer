@@ -13,23 +13,35 @@ struct DevCareerApp: App {
     var themeStore = ThemeStore()
     var accountManager = AccountStore()
     var router = NavigationRouter()
-
+    var pathStore = LearningPathStore()
+    
+    @State var isLoading = true
+     @State var showContent: Bool = false
     var body: some Scene {
         WindowGroup {
+            
             Group {
                 if accountManager.isUserSignedIn {
                     ContentView()
                  } else {
                     AuthScreen()
                 }
+               
             }
             
             .environment(themeStore)
             .environment(accountManager)
             .environment(router)
-//            .onAppear {
-//                accountManager.logout()
-//            }
+            .environment(pathStore)
+            .onAppear {
+                if !accountManager.isUserSignedIn {
+                    accountManager.updateSignedInStatus()
+                }
+             //
+               // accountManager.logout()
+
+            }
+            
 
           
         }

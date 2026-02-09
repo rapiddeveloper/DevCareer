@@ -6,7 +6,7 @@
 //
 
 
-enum AchievementStatus {
+enum AchievementStatus: Codable {
     case locked
     case unlocked
 }

@@ -9,10 +9,13 @@ import KeychainSwift
  
 protocol AuthServiceProtocol {
     var isAuthenticated: Bool { get }
-    
+    var isSignedUp: Bool { get }
+
     func saveCredentials(_ credentials: AuthCredentials) -> Bool
     func getCredentials() -> AuthCredentials?
     func clearCredentials()
+    func deleteRegistered()
+
 }
 
 class AuthService: AuthServiceProtocol {
@@ -23,6 +26,7 @@ class AuthService: AuthServiceProtocol {
     private init() {}
     
     let credentialsKey = "credentials"
+    let signupKey = "isSignup"
     @discardableResult
     func saveToken(token: String) -> Bool {
         
@@ -40,7 +44,7 @@ class AuthService: AuthServiceProtocol {
         guard let data = try? JSONEncoder().encode(credentials) else {
             return false
         }
-        return keychain.set(data, forKey: credentialsKey)
+        return keychain.set(data, forKey: credentialsKey) && keychain.set(true, forKey: signupKey)
     }
     
     @discardableResult
@@ -59,7 +63,17 @@ class AuthService: AuthServiceProtocol {
         keychain.delete(credentialsKey)
     }
     
+    func deleteRegistered() {
+        keychain.delete(credentialsKey)
+        keychain.delete(signupKey)
+    }
+    
     var isAuthenticated: Bool {
         return getCredentials() != nil
+    }
+    
+    var isSignedUp: Bool {
+        
+        return keychain.getBool(signupKey) != nil
     }
 }

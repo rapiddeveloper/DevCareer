@@ -11,7 +11,7 @@
 
 import Foundation
 
-struct Badge {
+struct Badge: Codable {
     var kind: BadgeKind
     
     var imageName: String {
@@ -51,7 +51,7 @@ struct BadgeItem: Identifiable {
     let id = UUID()
 }
 
-enum BadgeKind: String, CaseIterable {
+enum BadgeKind: String, CaseIterable, Codable {
     case blue
     case gray
     case purple

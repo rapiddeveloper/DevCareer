@@ -6,8 +6,12 @@
 //
 
 
-enum LessonProgress {
-    case notStarted
-    case inProgress(Double) // percentage 0.0 – 1.0
-    case completed
+//enum LessonProgress: Codable {
+//    case notStarted
+//    case inProgress(Double) // percentage 0.0 – 1.0
+//    case completed
+//}
+
+struct LessonProgress: Codable {
+    var state: String
 }

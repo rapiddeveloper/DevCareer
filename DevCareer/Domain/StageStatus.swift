@@ -6,7 +6,7 @@
 //
 
 
-enum StageStatus {
+enum StageStatus: Codable {
     case completed
     case current
     case locked

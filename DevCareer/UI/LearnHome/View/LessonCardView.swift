@@ -31,8 +31,9 @@ struct LessonCardView<Content: View>: View {
         )
     }
     
-    init(@ViewBuilder content: @escaping () -> Content) {
+    init(topic: String, @ViewBuilder content: @escaping () -> Content) {
         label = content()
+        self.topic = topic
     }
 
  
@@ -64,7 +65,7 @@ struct LessonCardView<Content: View>: View {
     var badge = Badge(kind: .gray)
 
     ZStack {
-        LessonCardView() {
+        LessonCardView(topic: "") {
             CircularProgressView(progress: 0.0) {
                 BadgeView(badge, width: 82, height: 72)
             }

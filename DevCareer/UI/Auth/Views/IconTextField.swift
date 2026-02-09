@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct IconTextField: View {
+    
+    @Environment(ThemeStore.self) private var themeStore
+
     let icon: String
     let placeholder: String
     var isSecure: Bool = false
@@ -36,7 +39,7 @@ struct IconTextField: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(themeStore.backgroundColor)
         .cornerRadius(14)
     }
 }

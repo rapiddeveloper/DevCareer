@@ -6,7 +6,7 @@
 //
 
 
-struct MotivationalMessage {
+struct MotivationalMessage: Codable {
     let title: String
     let subtitle: String
 }

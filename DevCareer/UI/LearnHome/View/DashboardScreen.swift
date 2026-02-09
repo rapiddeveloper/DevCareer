@@ -11,6 +11,7 @@ struct DashboardScreen: View {
 
     @Environment(ThemeStore.self) private var themeStore
     @Environment(NavigationRouter.self) private var router
+    @Environment(AccountStore.self) private var accountStore
     
     let headerColor = Color(uiColor: .init(red: 134/255, green: 54/255, blue: 232/255, alpha: 0.26))
 
@@ -27,7 +28,7 @@ struct DashboardScreen: View {
                             SVGImage(
                                 svg: "Days", width: 12, height: 12,
                                 color: themeStore.fireColor)
-                            DevCareerText("3 Days", variant: .subtitle1)
+                            DevCareerText("1 Day", variant: .subtitle1)
                         }
                     }
                 }
@@ -36,7 +37,7 @@ struct DashboardScreen: View {
                     DevCareerIconButton {
                         router.navigateTo(.profile)
                     } label: {
-                        DevCareerText("TA", variant: .subtitle2)
+                        DevCareerText(accountStore.userName, variant: .subtitle2)
                             .foregroundStyle(themeStore.brandTextColor)
  
                     }

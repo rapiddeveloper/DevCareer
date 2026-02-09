@@ -12,6 +12,8 @@ import SwiftUI
 struct DashboardHeaderView: View {
     
     @Environment(ThemeStore.self) private var themeStore
+    @Environment(AccountStore.self) private var accountStore
+    @State private var greeting = Greeting()
     
     let gradient = RadialGradient(
         stops: [
@@ -42,13 +44,16 @@ struct DashboardHeaderView: View {
                     .frame(width: 160, height: 175)
                 
                 VStack(spacing: themeStore.xsSpacing) {
-                    DevCareerText("Good Morning Alex!", variant: .large)
+                    DevCareerText(greeting.message, variant: .large)
                         .multilineTextAlignment(.center)
-                    DevCareerText("You’re closer than you think 💪🏾")
+                    DevCareerText(greeting.subtitle)
 
                 }
             }
          }
+        .onAppear {
+            greeting = accountStore.generateGreeting()
+        }
          
     }
 }

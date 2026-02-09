@@ -8,9 +8,13 @@
 import Foundation
 
 
-struct LearningPath {
-    let id: UUID
+struct LearningPath: Codable {
+    
+    
+    let id: String
     let title: String
     let description: String
     let stages: [LearningStage]
+    
+    static let empty = LearningPath(id: "", title: "", description: "", stages: [])
 }

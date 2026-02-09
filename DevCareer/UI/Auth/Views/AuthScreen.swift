@@ -20,7 +20,9 @@ struct AuthScreen: View {
     var body: some View {
         
         Group {
-            if !accountManager.isUserSignedIn && !accountManager.isAuth() {
+           // if !accountManager.isUserSignedIn && !accountManager.isAuth() {
+            if  !accountManager.isRegistered() {
+
                 WelcomeView(isSignupViewPresented: $isSignUpPresented)
                     .fullScreenCover(isPresented: $isSignUpPresented) {
                         SignUpView( isLoginViewPresented: $isPresented, onSignUp: accountManager.signup)

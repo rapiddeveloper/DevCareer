@@ -7,6 +7,7 @@
 
 
 struct Greeting {
-    let timeOfDay: TimeOfDay
-    let message: String
+    var timeOfDay: TimeOfDay = .morning
+    var message: String = ""
+    var subtitle: String = ""
 }
