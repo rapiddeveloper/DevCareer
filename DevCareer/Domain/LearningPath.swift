@@ -14,7 +14,7 @@ struct LearningPath: Codable {
     let id: String
     let title: String
     let description: String
-    let stages: [LearningStage]
+    var stages: [LearningStage]
     
     static let empty = LearningPath(id: "", title: "", description: "", stages: [])
 }

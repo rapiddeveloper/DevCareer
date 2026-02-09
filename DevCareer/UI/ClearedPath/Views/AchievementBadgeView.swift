@@ -10,7 +10,7 @@ import SwiftUI
 struct AchievementBadgeView: View {
 
     @Binding var isFlipped: Bool
-    let badge: Badge = .init(kind: .blue)
+    var badge: Badge
 
     var body: some View {
         ZStack {

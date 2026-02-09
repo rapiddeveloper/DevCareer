@@ -12,8 +12,11 @@ import SwiftUI
 struct DashboardHeaderView: View {
     
     @Environment(ThemeStore.self) private var themeStore
-    @Environment(AccountStore.self) private var accountStore
-    @State private var greeting = Greeting()
+ 
+    //@State private var greeting = Greeting()
+    var profile: Profile
+    var greeting: Greeting
+
     
     let gradient = RadialGradient(
         stops: [
@@ -51,9 +54,9 @@ struct DashboardHeaderView: View {
                 }
             }
          }
-        .onAppear {
-            greeting = accountStore.generateGreeting()
-        }
+//        .onAppear {
+//            greeting = accountStore.generateGreeting()
+//        }
          
     }
 }
@@ -117,7 +120,7 @@ extension DashboardHeaderView {
 }
 
 #Preview {
-    DashboardHeaderView()
+    DashboardHeaderView(profile: .init(), greeting: Greeting())
         .frame(height: 500.0)
         .environment(ThemeStore())
 

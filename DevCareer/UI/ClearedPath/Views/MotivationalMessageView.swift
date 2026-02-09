@@ -9,21 +9,25 @@ import SwiftUI
 
 struct MotivationalMessageView: View {
     @Environment(ThemeStore.self) private var themeStore
-
+    var stage: LearningStage?
+    
     var body: some View {
-        VStack(spacing: themeStore.mdSpacing) {
-            DevCareerText(
-                "Git & version control\nmastery earned",
-                variant: .large
-            )
-            .multilineTextAlignment(.center)
-            .lineSpacing(-2)
-            
-            DevCareerText(
-                "Versioned & valiant. You don't just write\ncode. You commit to it."
-            )
-            .multilineTextAlignment(.center)
-            
+        if let stage = self.stage {
+            VStack(spacing: themeStore.mdSpacing) {
+                DevCareerText(
+                    stage.title,
+                    variant: .large
+                )
+                .multilineTextAlignment(.center)
+                .lineSpacing(-2)
+                
+                DevCareerText(
+                    stage.motivationalMessage
+                )
+                .multilineTextAlignment(.center)
+                
+            }
         }
+       
     }
 }

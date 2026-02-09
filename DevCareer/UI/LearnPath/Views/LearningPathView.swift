@@ -11,6 +11,7 @@ import UIKit
 struct LearningPathView: View {
 
     @Environment(NavigationRouter.self) private var router
+    var profile: Profile
 
     let badge = Badge(kind: .gray)
 
@@ -20,16 +21,17 @@ struct LearningPathView: View {
 
             VStack(alignment: .leading) {
                 header
-                ForEach(0..<5, id: \.self) { idx in
-                    LessonCardView(topic: "demo") {
+                ForEach(profile.activeLearningPath.stages) { stage in
+                    LessonCardView(topic: stage.title, subtitle: getLessonTitle(stage)) {
                         CircularProgressView(progress: 0.0) {
-                            BadgeView(badge, width: 82.0, height: 72.0)
+                            BadgeView(stage.achivement.badge, width: 82.0, height: 72.0)
                         }
                         .frame(width: 112.0, height: 112.0)
+                         
 
                     }
                     .onTapGesture {
-                        router.navigateTo(.cleared)
+                        router.navigateTo(.cleared, withSelectedStage: stage)
                     }
                 }
             }
@@ -39,14 +41,25 @@ struct LearningPathView: View {
     }
 }
 
+extension LearningPathView {
+    
+    func getLessonTitle(_ stage: LearningStage) -> String {
+        if stage.id == profile.activeStage.id {
+            return profile.activeLessonTitle
+        }
+        return ""
+    }
+}
+
+
 
 
 extension LearningPathView {
 
     var header: some View {
         VStack(alignment: .leading) {
-            DevCareerText("Stage 1 of 10")
-            DevCareerText("Fullstack mobile engineer path", variant: .title1)
+            DevCareerText("Stage \(profile.activeStateNumber) of \(profile.activePathStagesCount)")
+            DevCareerText("\(profile.activeStage.title)", variant: .title1)
                 .multilineTextAlignment(.leading)
 
         }
@@ -60,6 +73,6 @@ extension LearningPathView {
 }
 
 #Preview {
-    LearningPathView()
+    LearningPathView(profile: .init())
         .environment(ThemeStore())
 }

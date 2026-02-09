@@ -21,7 +21,7 @@ struct DevCareerApp: App {
         WindowGroup {
             
             Group {
-                if accountManager.isUserSignedIn {
+                if accountManager.isUserSignedIn && !pathStore.isLoading {
                     ContentView()
                  } else {
                     AuthScreen()

@@ -13,11 +13,13 @@ import SwiftUI
 
 struct ClearedPathScreen: View {
     
-     @Environment(ThemeStore.self) var themeStore
+    @Environment(ThemeStore.self) var themeStore
+    @Environment(AccountStore.self) var accountStore
+
     
     var body: some View {
          
-                ClearedPathView()
+        ClearedPathView(profile: accountStore.profile)
                     .presentationDetents([.fraction(themeStore.sheetHeight)])
                     .presentationCornerRadius(themeStore.lgSpacing)
                     .presentationDragIndicator(.visible)

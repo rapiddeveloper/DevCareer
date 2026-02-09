@@ -28,7 +28,7 @@ struct ContentView: View {
                 .navigationDestination(for: Route.self) { route in
                     switch route {
                     case .cleared:
-                        ClearedPathView()
+                        ClearedPathView(profile: accountStore.profile)
                     case .learn:
                         LearningPathScreen()
                     case .profile:
@@ -43,6 +43,7 @@ struct ContentView: View {
 
                 })*/
                 .onAppear(perform: updateUserLearningPath)
+                
         }
     }
 }

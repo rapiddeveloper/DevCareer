@@ -39,7 +39,7 @@ struct IconTextField: View {
             }
         }
         .padding()
-        .background(themeStore.backgroundColor)
+        .background(Color(.systemGray4))
         .cornerRadius(14)
     }
 }

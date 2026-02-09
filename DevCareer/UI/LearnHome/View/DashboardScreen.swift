@@ -18,7 +18,7 @@ struct DashboardScreen: View {
 
     var body: some View {
 
-        DashboardView()
+        DashboardView(profile: accountStore.profile, greeting: accountStore.generateGreeting())
             .ignoresSafeArea()
             .navigationTitle("")
             .toolbar {

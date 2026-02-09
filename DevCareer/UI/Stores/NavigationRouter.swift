@@ -27,11 +27,14 @@ class NavigationRouter {
  
     var isClearedPathScreenPresented = false
     var isProfileScreenPresented = false
+    var selectedStage: LearningStage?
 
-
-    func navigateTo(_ route: Route) {
+    func navigateTo(_ route: Route, withSelectedStage stage: LearningStage? = nil) {
         if route == .cleared {
             isClearedPathScreenPresented = true
+            if let stage = stage {
+                selectedStage = stage
+            }
         } else {
             path.append(route)
 

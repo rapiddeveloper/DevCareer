@@ -11,25 +11,27 @@ struct DashboardView: View {
     
     @Environment(ThemeStore.self) private var themeStore
     
+    var profile: Profile
+    var greeting: Greeting
     
     var body: some View {
         ScrollView {
             ZStack {
                 VStack(spacing: 0) {
-                    DashboardHeaderView()
+                    DashboardHeaderView(profile: profile, greeting: greeting)
                         .frame(height: UIConstants.headerHeight)
                     Spacer(minLength: UIConstants.sectionSpacing)
                     Group {
-                        LearningPathSectionView()
+                        LearningPathSectionView(profile: profile)
                         Spacer(minLength: themeStore.xlSpacing)
-                        BadgesSectionView()
+                        BadgesSectionView(profile: profile)
                     }
                     .padding(.horizontal, themeStore.containerPadding)
                     
                     
                 }
                 Group {
-                    ForTodayView()
+                    ForTodayView(profile: profile)
                 }
                 .padding(.bottom, 90)
                 .padding(.horizontal, themeStore.containerPadding)
@@ -50,7 +52,7 @@ extension DashboardView {
 }
 
 #Preview {
-    DashboardView()
+    DashboardView(profile: .init(), greeting: Greeting())
         .ignoresSafeArea()
         .environment(ThemeStore())
 }

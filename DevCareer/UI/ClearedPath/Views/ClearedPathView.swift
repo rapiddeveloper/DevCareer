@@ -10,8 +10,11 @@ import SwiftUI
 struct ClearedPathView: View {
 
     @Environment(ThemeStore.self) private var themeStore
+    @Environment(NavigationRouter.self) private var router
     @Environment(\.displayScale) var displayScale
     @State private var isFlipped = false
+    
+    var profile: Profile
 
     var body: some View {
         VStack(spacing: themeStore.xlSpacing) {
@@ -53,9 +56,12 @@ struct ClearedPathView: View {
 extension ClearedPathView {
     var mainContent: some View {
         VStack(spacing: themeStore.xlSpacing) {
-            AchievementBadgeView(isFlipped: $isFlipped)
+            if let stage = router.selectedStage {
+                AchievementBadgeView(isFlipped: $isFlipped, badge: stage.achivement.badge)
 
-            MotivationalMessageView()
+            }
+
+            MotivationalMessageView(stage: router.selectedStage)
         }
         .environment(themeStore)
     }
@@ -75,6 +81,6 @@ extension ClearedPathView {
 }
 
 #Preview {
-    ClearedPathView()
+    ClearedPathView(profile: .init())
         .environment(ThemeStore())
 }

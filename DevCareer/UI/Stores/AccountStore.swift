@@ -18,19 +18,38 @@ struct Profile: Codable {
     var achievements: [Achievement] = []
     var activeLearningPathId: String = ""
     var todayLesson: Lesson?
-    
+
     var isEnrolled: Bool {
         !activeLearningPathId.isEmpty
     }
+
+    var activeStateNumber: Int {
+        let idx =
+            activeLearningPath.stages.firstIndex(where: {
+                $0.id == activeStage.id
+            }) ?? 0
+        return idx + 1
+    }
+
+    var activePathStagesCount: Int {
+        print(activeLearningPath.stages)
+        return activeLearningPath.stages.count
+    }
+
+    var activeLessonTitle: String {
+        todayLesson?.title ?? ""
+    }
+
+    var achievementBadge: Badge {
+        activeStage.achivement.badge
+    }
+
+   
 }
 
 @MainActor
 @Observable
 class AccountStore {
-
-    //    var isUserSignedIn: Bool {
-    //        return profile.firstName != "" && profile.lastName != "" && profile.email != ""
-    //    }
 
     var isUserSignedIn = false
 
@@ -38,11 +57,11 @@ class AccountStore {
     var dbService: LocalDBServiceProtocol
     var profile: Profile = .init()
 
-    
     var userName: String {
-        return "\(profile.firstName.first ?? " ")\(profile.lastName.first ?? " ")"
+        return
+            "\(profile.firstName.first ?? " ")\(profile.lastName.first ?? " ")"
     }
-    
+
     var firstName: String {
         return profile.firstName
     }
@@ -58,7 +77,7 @@ class AccountStore {
             if profile.email != "" {
                 self.isUserSignedIn = true
             }
-            
+
         }
     }
 
@@ -77,48 +96,52 @@ class AccountStore {
         if isSaved && authService.saveCredentials(credentials) {
             self.profile = profile
         }
-        
+
         let _ = dbService.save(true, key: .session)
         isUserSignedIn = true
 
     }
 
-    
     func isRegistered() -> Bool {
-        
+
         return authService.isSignedUp
     }
 
     func login(authCredentials credentials: AuthCredentials) {
-        
-        print(dbService.load(Profile.self, key: credentials.email))
-        print(authService.getCredentials())
+
+        //        print(dbService.load(Profile.self, key: credentials.email))
+        //        print(authService.getCredentials())
         guard let profile = dbService.load(Profile.self, key: credentials.email)
         else {
             return
         }
         self.profile = profile
         let _ = dbService.save(true, key: .session)
-       isUserSignedIn = true
-        
+        isUserSignedIn = true
 
     }
-    
+
     func updateUserLearningPath(fromPaths paths: [LearningPath]) {
         guard !paths.isEmpty else { return }
-        
+        print("updateUserLearningPath")
+
         if !profile.isEnrolled {
             if let firstPath = paths.first,
-               let firstStage = firstPath.stages.first,
-               let firstLesson = firstStage.lessons.first {
-                profile.activeLearningPath = firstPath
-                profile.activeStage = firstStage
-                profile.todayLesson = firstLesson
+                let firstStage = firstPath.stages.first,
+               !firstStage.lessons.isEmpty
+                     
+            {
+                let firstIdx = 0
+                profile.activeLearningPath = paths[firstIdx]
+                profile.activeLearningPath.stages[firstIdx].lessons[firstIdx].progress = .init(state: "started")
+                profile.activeStage = profile.activeLearningPath.stages[firstIdx]
+                profile.todayLesson = profile.activeLearningPath.stages[firstIdx].lessons[firstIdx]
+
             }
         }
-         
+
     }
-    
+
     func updateSignedInStatus() {
         let hasSession = dbService.load(Bool.self, key: .session) ?? false
         print(hasSession)
@@ -128,43 +151,41 @@ class AccountStore {
         //isUserSignedIn = hasSession && authService.isAuthenticated
     }
 
-        func generateGreeting(
-            date: Date = Date(),
-            calendar: Calendar = .current
-        ) -> Greeting {
+    func generateGreeting(
+        date: Date = Date(),
+        calendar: Calendar = .current
+    ) -> Greeting {
 
-            let hour = calendar.component(.hour, from: date)
+        let hour = calendar.component(.hour, from: date)
 
-            let timeOfDay: TimeOfDay
-            let message: String
-            let subtitle: String
+        let timeOfDay: TimeOfDay
+        let message: String
+        let subtitle: String
 
-            switch hour {
-            case 5..<12:
-                timeOfDay = .morning
-                message = "Good morning, \(firstName)!"
-                subtitle = "Ready to start learning today"
+        switch hour {
+        case 5..<12:
+            timeOfDay = .morning
+            message = "Good morning, \(firstName)!"
+            subtitle = "Ready to start learning today"
 
-            case 12..<17:
-                timeOfDay = .afternoon
-                message = "Good afternoon, \(firstName)!"
-                subtitle = "Let’s keep the momentum going"
+        case 12..<17:
+            timeOfDay = .afternoon
+            message = "Good afternoon, \(firstName)!"
+            subtitle = "Let’s keep the momentum going"
 
-            default:
-                timeOfDay = .evening
-                message = "Good evening, \(firstName)"
-                subtitle = " A small lesson before rest goes a long way"
+        default:
+            timeOfDay = .evening
+            message = "Good evening, \(firstName)"
+            subtitle = " A small lesson before rest goes a long way"
 
-            }
-
-            return Greeting(timeOfDay: timeOfDay, message: message, subtitle: subtitle)
         }
-    
+
+        return Greeting(
+            timeOfDay: timeOfDay, message: message, subtitle: subtitle)
+    }
 
     func logout() {
-      //  print(authService.getCredentials())
-       // authService.deleteRegistered()
-       //authService.clearCredentials()
+
         let _ = dbService.save(false, key: .session)
         isUserSignedIn = false
         profile = .init()

@@ -22,10 +22,11 @@ struct SwipeBackEnabler: UIViewControllerRepresentable {
 struct LearningPathScreen: View {
     
     @Environment(ThemeStore.self) private var themeStore
+    @Environment(AccountStore.self) private var accountStore
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        LearningPathView()
+        LearningPathView(profile: accountStore.profile)
             .navigationBarBackButtonHidden()
         .background(SwipeBackEnabler())
         .toolbar {

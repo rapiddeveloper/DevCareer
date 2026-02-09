@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ForTodayView: View {
     @Environment(ThemeStore.self) private var themeStore
+    var profile: Profile
     
     private let topic = "Learn React"
     private let subtitle = "Component lifecycle"
@@ -31,10 +32,11 @@ struct ForTodayView: View {
                 
                 HStack {
                     VStack(alignment: .leading, spacing: themeStore.smSpacing - 2.0) {
-                        DevCareerText(topic, variant: .subtitle1)
+                        DevCareerText(profile.activeLessonTitle, variant: .subtitle1)
                         HStack(spacing: 8) {
                             SVGImage(svg: "NoteIcon", width: UIConstants.iconLen, height: UIConstants.iconLen, color: themeStore.softTextColor)
-                            DevCareerText(subtitle)
+                           
+                            DevCareerText( profile.activeStage.title)
                             Spacer()
                         }
                         
@@ -75,7 +77,7 @@ extension ForTodayView {
 
 #Preview {
     ZStack {
-        ForTodayView()
+        ForTodayView(profile: .init())
             .environment(ThemeStore())
     }
     .padding()

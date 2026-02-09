@@ -8,32 +8,33 @@
 import SwiftUI
 
 struct LearningPathSectionView: View {
-    
+
     @Environment(ThemeStore.self) private var themeStore
     @Environment(NavigationRouter.self) private var router
 
-    
-    // Hardcoded data driving the view
-    private let pathTitle = "Fullstack mobile Engineer"
-    private let currentStage = 3
-    private let totalStages = 11
-  
-    
+    var profile: Profile
+ 
     var body: some View {
         VStack(alignment: .leading, spacing: themeStore.mdSpacing) {
-           
+
             DevCareerText("Active learning path", variant: .subheadline)
-            
+
             VStack(alignment: .leading, spacing: themeStore.containerPadding) {
                 VStack(spacing: 0) {
                     // Progress Header
-                    CurriculumProgressView(pathTitle: pathTitle, currentStage: currentStage, totalStages: totalStages)
-                    
+                    CurriculumProgressView(
+                        pathTitle: profile.activeLearningPath.title,
+                        currentStage: profile.activeStateNumber,
+                        totalStages:  profile.activePathStagesCount
+                    )
+
                     // Lesson Card
-                    LessonCardView()
+                    LessonCardView(
+                        topic: profile.activeStage.title,
+                        subtitle: profile.activeLessonTitle,
+                        badge: profile.achievementBadge)
                 }
-              
-                
+
                 DevCareerButton {
                     HStack {
                         DevCareerText("View full path", variant: .button)
@@ -43,17 +44,15 @@ struct LearningPathSectionView: View {
                 } action: {
                     router.navigateTo(.learn)
                 }
-               
 
-                
             }
             .padding(themeStore.containerPadding)
             .background {
                 RoundedRectangle(cornerRadius: themeStore.smSpacing)
                     .fill(themeStore.backgroundColor)
-                   
+
             }
-         }
+        }
     }
 }
 
@@ -68,12 +67,12 @@ extension LearningPathSectionView {
         static let iconSize: CGFloat = 48.0
         static let progressScale: CGFloat = 1.5
         static let buttonPadding: CGFloat = 16.0
-        
+
         // MARK: - Typography
         static let headerFontSize: CGFloat = 18.0
         static let titleFontSize: CGFloat = 16.0
         static let labelFontSize: CGFloat = 14.0
-        
+
         // MARK: - Styling
         static let purpleAccent = Color.purple
         static let cornerRadius12: CGFloat = 12.0
@@ -83,14 +82,6 @@ extension LearningPathSectionView {
 }
 
 #Preview {
-    LearningPathSectionView()
+    LearningPathSectionView(profile: .init())
         .environment(ThemeStore())
 }
-
-
-
- 
-
-
-
- 

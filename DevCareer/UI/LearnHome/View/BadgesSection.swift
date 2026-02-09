@@ -10,6 +10,8 @@ import SwiftUI
 struct BadgesSectionView: View {
     
     @Environment(ThemeStore.self) private var themeStore
+    var profile: Profile
+
     
     var body: some View {
         VStack(alignment: .leading, spacing: themeStore.mdSpacing) {
@@ -42,6 +44,6 @@ extension BadgesSectionView {
 
 
 #Preview {
-    BadgesSectionView()
+    BadgesSectionView(profile: .init())
         .environment(ThemeStore())
 }

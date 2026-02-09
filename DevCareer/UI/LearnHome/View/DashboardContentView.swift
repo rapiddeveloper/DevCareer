@@ -14,8 +14,8 @@ struct DashboardContentView: View {
     var body: some View {
         
             VStack(spacing: themeStore.xlSpacing) {
-                LearningPathSectionView()
-                BadgesSectionView()
+                LearningPathSectionView(profile: .init())
+                BadgesSectionView(profile: .init())
             }
             
         
