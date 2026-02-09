@@ -11,6 +11,8 @@ import UIKit
 struct LearningPathView: View {
 
     @Environment(NavigationRouter.self) private var router
+    @Environment(ThemeStore.self) private var themeStore
+
     var profile: Profile
 
     let badge = Badge(kind: .gray)
@@ -19,19 +21,38 @@ struct LearningPathView: View {
 
         ScrollView {
 
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 header
+                Spacer(minLength: 8)
                 ForEach(profile.activeLearningPath.stages) { stage in
-                    LessonCardView(topic: stage.title, subtitle: getLessonTitle(stage)) {
-                        CircularProgressView(progress: 0.0) {
-                            BadgeView(stage.achivement.badge, width: 82.0, height: 72.0)
+                    
+                    VStack(spacing: 0) {
+                        LessonCardView(topic: stage.title, subtitle: getLessonTitle(stage)) {
+                            CircularProgressView(progress: 0.0) {
+                                BadgeView(stage.achivement.badge, width: 82.0, height: 72.0)
+                            }
+                            .frame(width: 112.0, height: 112.0)
+                            
                         }
-                        .frame(width: 112.0, height: 112.0)
-                         
+                        .onTapGesture {
+                            router.navigateTo(.cleared, withSelectedStage: stage)
+                        }
+                        if !isLastStage(stage, ofPath: profile.activeLearningPath) {
+                            HStack {
+                                Spacer()
+                                Rectangle()
+                                    .fill(Color.clear)
+                                    
+                                    .stroke(Color.lightGrey, style: .init(lineWidth: 1, dash: [2.0,4.0]), antialiased: true)
+                                    .frame(width: 0.5, height: 80)
+                                Spacer()
+                            }
+                          
+                            .frame(maxWidth: .infinity)
 
-                    }
-                    .onTapGesture {
-                        router.navigateTo(.cleared, withSelectedStage: stage)
+                        }
+                       
+                       
                     }
                 }
             }
@@ -43,6 +64,13 @@ struct LearningPathView: View {
 
 extension LearningPathView {
     
+    func isLastStage(_ stage: LearningStage, ofPath path: LearningPath) -> Bool {
+        if let lastStage = path.stages.last,
+           stage.id == lastStage.id {
+            return true
+        }
+        return false
+    }
     func getLessonTitle(_ stage: LearningStage) -> String {
         if stage.id == profile.activeStage.id {
             return profile.activeLessonTitle

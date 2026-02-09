@@ -44,6 +44,7 @@ struct LearningPathSectionView: View {
                 } action: {
                     router.navigateTo(.learn)
                 }
+                .accessibilityIdentifier("fullPathButton")
 
             }
             .padding(themeStore.containerPadding)

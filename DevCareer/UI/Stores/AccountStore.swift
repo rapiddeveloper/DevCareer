@@ -109,8 +109,7 @@ class AccountStore {
 
     func login(authCredentials credentials: AuthCredentials) {
 
-        //        print(dbService.load(Profile.self, key: credentials.email))
-        //        print(authService.getCredentials())
+     
         guard let profile = dbService.load(Profile.self, key: credentials.email)
         else {
             return
@@ -123,8 +122,7 @@ class AccountStore {
 
     func updateUserLearningPath(fromPaths paths: [LearningPath]) {
         guard !paths.isEmpty else { return }
-        print("updateUserLearningPath")
-
+ 
         if !profile.isEnrolled {
             if let firstPath = paths.first,
                 let firstStage = firstPath.stages.first,
